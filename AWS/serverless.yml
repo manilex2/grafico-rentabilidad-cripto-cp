@@ -1,0 +1,16 @@
+# serverless.yml
+
+service: invrtir-grafico-rentabilidad-cripto-cp
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: proy
+  region: us-east-2
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: GET /
+      - http: 'GET {proxy+}'
