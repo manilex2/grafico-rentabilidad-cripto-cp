@@ -56,8 +56,6 @@ function totalChart(ctx, extraerdatos){
         }
         return matriz3;
     })
-
-    console.log(D15);
     /*const D60 = extraerdatos.map((item) => {
         item.map((elemento) => {
             return elemento.d60;
@@ -78,21 +76,21 @@ function totalChart(ctx, extraerdatos){
             type: 'bar',
             label: '15 Días',
             data: [D15[0][0], D15[0][1], D15[0][2]],
-            backgroundColor: 'rgba(75, 192, 192)'
+            backgroundColor: '#9E68E5'
         });  
         
         total.push({
             type: 'bar',
             label: '30 Días',
             data: [D30[0][0], D30[0][1], D30[0][2]],
-            backgroundColor: 'rgba(75, 192, 13)'
+            backgroundColor: '#4DA2FD'
         }); 
         
         total.push({
             type: 'bar',
             label: '45 Días',
             data: [D45[0][0], D45[0][1], D45[0][2]],
-            backgroundColor: 'rgba(50, 19, 1)'
+            backgroundColor: '#26D1C6'
         });   
    
     
