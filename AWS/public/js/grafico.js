@@ -32,7 +32,7 @@ function totalChart(ctx, extraerdatos){
         for (let i = 0; i < item.length; i++) {
             const element = item[i];
             if (element.d15) {
-                matriz1.push(element.d15);
+                matriz1.push((element.d15*100).toFixed(0));
             }
         }
         return matriz1;
@@ -42,7 +42,7 @@ function totalChart(ctx, extraerdatos){
         for (let i = 0; i < item.length; i++) {
             const element = item[i];
             if (element.d30) {
-                matriz2.push(element.d30);
+                matriz2.push((element.d30*100).toFixed(0));
             }
         }
         return matriz2;
@@ -52,22 +52,11 @@ function totalChart(ctx, extraerdatos){
         for (let i = 0; i < item.length; i++) {
             const element = item[i];
             if (element.d45) {
-                matriz3.push(element.d45);
+                matriz3.push((element.d45*100).toFixed(0));
             }
         }
         return matriz3;
     })
-    /*const D60 = extraerdatos.map((item) => {
-        item.map((elemento) => {
-            return elemento.d60;
-        })
-    })
-
-    const D90 = extraerdatos.map((item) => {
-        item.map((elemento) => {
-            return elemento.d90;
-        })
-    })*/
 
     var total = []
 
@@ -100,7 +89,7 @@ function totalChart(ctx, extraerdatos){
             datasets: total,
             labels: ['Conservador', 'Optimista', 'Pesimista'],
         },
-        plugins: [plugin],
+        plugins: [plugin, ChartDataLabels],
         options: {
             layout: {
                 padding: {
@@ -150,6 +139,19 @@ function totalChart(ctx, extraerdatos){
                     },
                     color: '#FFF',
                     padding: 30
+                },
+                datalabels: {
+                    color: '#FFF',
+                    anchor: 'end',
+                    align: 'top',
+                    offset: 10,
+                    font: {
+                        weight: 'bold'
+                    },
+                    formatter: function (value, context) {
+                        console.log(context.dataset.data[context.dataIndex]);
+                        return context.dataset.data[context.dataIndex] + '%';
+                    },
                 },
                 /*legend: {
                     position: 'bottom',
